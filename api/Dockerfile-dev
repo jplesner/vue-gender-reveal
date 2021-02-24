@@ -1,0 +1,8 @@
+FROM node:lts-alpine
+
+WORKDIR /usr/src/app/api
+RUN apk update && apk add postgresql
+COPY package*.json ./
+RUN npm install
+EXPOSE 8081
+CMD ["npm", "run", "start"]

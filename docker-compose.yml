@@ -1,0 +1,32 @@
+version: '3.9'
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile-dev
+    ports:
+      - "8081:8081"
+    volumes:
+       - ./api:/usr/src/app/api
+       - /usr/src/app/api/node_modules
+    depends_on:
+      - postgres
+    command: ["./wait-for-postgres.sh", "npm run migrate", "npm run seed", "npm run start"]
+    environment:
+      DB_USERNAME: app
+      DB_NAME: gender_reveal
+      DB_HOST: postgres
+  postgres:
+    image: postgres:9.6.2-alpine
+    environment:
+      POSTGRES_DB: gender_reveal
+      POSTGRES_USER: app
+  web:
+    build:
+      context: ./website
+      dockerfile: Dockerfile-dev
+    ports:
+      - "8080:8080"
+    volumes:
+       - ./website:/usr/src/app/web
+       - /usr/src/app/web/node_modules
