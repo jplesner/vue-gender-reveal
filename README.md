@@ -12,6 +12,8 @@ I hacked this together in a pretty short amount of time, using the following:
 
 Enjoy.
 
+*Stock photos from: https://www.instagram.com/rodnae.prod/*
+
 ## Prerequisites
 * Docker Desktop
 
