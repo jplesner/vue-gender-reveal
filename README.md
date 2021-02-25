@@ -1,24 +1,31 @@
-# gender-reveal
+# vue-gender-reveal
 
-## Project setup
+## Overview 
+Some friends of mine wanted to do a fun, covid-era, gender reveal and asked me to make them a web app for the occasion. They knew exactly what they wanted, so I take no credit/blame for the design.
+
+I hacked this together in a pretty short amount of time, using the following:
+* **Node** Server and API
+* **Vuejs** Frontend
+* **Postgres** Database
+* **Sequelize** migrations and ORM
+* **Docker** containerization
+
+Enjoy.
+
+## Prerequisites
+* Docker Desktop
+
+## Dev project setup
+#### The usual...
 ```
-npm install
+docker-compose up -d
+```
+By default, the frontend will be available at localhost:8080. Give it a few seconds the first time.
+
+#### To teardown...
+```
+docker-compose down
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Compile and minify for production
+Build image from Dockerfile in project root.
